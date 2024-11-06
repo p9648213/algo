@@ -40,8 +40,40 @@
 // row 1: 0
 // row 2: 01
 
+// Time: O(logn) | Space: O(1)
 pub fn kth_grammar(n: i32, k: i32) -> i32 {
-    todo!()
+    let mut k = k;
+    let mut flip = 0;
+
+    while k > 1 {
+        if k % 2 == 0 {
+            flip = flip + 1;
+        }
+
+        k = (k + 1) / 2
+    }
+
+    if flip % 2 == 0 {
+        return 0;
+    }
+
+    1
+}
+
+// Time: O(n) | Space: O(n)
+pub fn kth_grammar_recursive(n: i32, k: i32) -> i32 {
+    if n == 1 {
+        return 0;
+    }
+
+    let length = 2_u32.pow(n as u32 - 1) as i32;
+    let half = length / 2;
+
+    if k <= half {
+        return kth_grammar_recursive(n - 1, k);
+    } else {
+        return kth_grammar_recursive(n - 1, k - half) ^ 1;
+    }
 }
 
 #[cfg(test)]
@@ -57,6 +89,15 @@ mod tests {
         assert_eq!(result, 0);
 
         let result = kth_grammar(2, 2);
+        assert_eq!(result, 1);
+
+        let result = kth_grammar_recursive(1, 1);
+        assert_eq!(result, 0);
+
+        let result = kth_grammar_recursive(2, 1);
+        assert_eq!(result, 0);
+
+        let result = kth_grammar_recursive(2, 2);
         assert_eq!(result, 1);
     }
 }
