@@ -32,6 +32,7 @@
 // Output: 1
 // Explanation: The friends leave in this order: 5, 4, 6, 2, 3. The winner is friend 1.
 
+//? Time: O(n^2) | Space: O(n)
 pub fn find_the_winner(n: i32, k: i32) -> i32 {
     if n == 1 {
         return 1;
@@ -39,26 +40,59 @@ pub fn find_the_winner(n: i32, k: i32) -> i32 {
 
     let mut player: Vec<i32> = (1..=n).collect();
     let mut count = 0;
-    let mut index: usize;
+    let mut index = 0;
 
     while player.len() > 1 {
         if count == k - 1 {
-            if count as usize > player.len() - 1 {
-                index = count as usize % player.len();
-            } else {
-                index = count as usize;
+            if index as usize > player.len() - 1 {
+                index = index as usize % player.len();
             }
             player.remove(index);
-            println!("{:?}", player);
-            //TODO has to update count to the next person
-            count = index as i32;
-            println!("{count}");
+            count = 0;
         } else {
             count = count + 1;
+            index = index + 1;
         }
     }
 
     player[0]
+}
+
+//? Time: O(n) | Space: O(1)
+pub fn find_the_winner_2(n: i32, k: i32) -> i32 {
+    let mut survivor = 0;
+    for pos in 2..=n {
+        survivor = (survivor + k) % pos as i32;
+    }
+    survivor + 1
+}
+
+//? Time: O(n^2) | Space: O(n)
+pub fn find_the_winner_recursive(n: i32, k: i32) -> i32 {
+    let player: Vec<i32> = (1..=n).collect();
+    winner(player, 0, k)
+}
+
+pub fn winner(mut array: Vec<i32>, start_index: i32, k: i32) -> i32 {
+    if array.len() == 1 {
+        return array[0];
+    }
+    let remove_index = (start_index + k - 1) as usize % array.len();
+    array.remove(remove_index);
+    winner(array, remove_index as i32, k)
+}
+
+//? Time: O(n) | Space: O(n)
+pub fn find_the_winner_recursive_2(n: i32, k: i32) -> i32 {
+    winner_2(n, k) + 1
+}
+
+pub fn winner_2(n: i32, k: i32) -> i32 {
+    if n == 1 {
+        0
+    } else {
+        (winner_2(n - 1, k) + k) % n
+    }
 }
 
 #[cfg(test)]
@@ -67,19 +101,43 @@ mod tests {
 
     #[test]
     fn test_1823() {
-        // let result = find_the_winner(1, 1);
-        // assert_eq!(result, 1);
+        let result = find_the_winner_2(1, 1);
+        assert_eq!(result, 1);
 
-        // let result = find_the_winner(2, 1);
-        // assert_eq!(result, 1);
+        let result = find_the_winner_2(5, 2);
+        assert_eq!(result, 3);
 
-        // let result = find_the_winner(2, 2);
-        // assert_eq!(result, 2);
+        let result = find_the_winner_2(6, 5);
+        assert_eq!(result, 1);
+
+        let result = find_the_winner_2(1, 1);
+        assert_eq!(result, 1);
 
         let result = find_the_winner(5, 2);
         assert_eq!(result, 3);
 
-        // let result = find_the_winner(6, 5);
-        // assert_eq!(result, 1);
+        let result = find_the_winner(6, 5);
+        assert_eq!(result, 1);
+
+        let result = find_the_winner_recursive(1, 1);
+        assert_eq!(result, 1);
+
+        let result = find_the_winner_recursive(5, 2);
+        assert_eq!(result, 3);
+
+        let result = find_the_winner_recursive(6, 5);
+        assert_eq!(result, 1);
+
+        let result = find_the_winner_recursive_2(1, 1);
+        assert_eq!(result, 1);
+
+        let result = find_the_winner_recursive_2(5, 2);
+        assert_eq!(result, 3);
+
+        let result = find_the_winner_recursive_2(6, 5);
+        assert_eq!(result, 1);
+
+        let result = find_the_winner_recursive_2(4, 1);
+        assert_eq!(result, 4);
     }
 }
