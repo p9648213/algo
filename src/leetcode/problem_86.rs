@@ -18,21 +18,28 @@
 // Input: nums = [1]
 // Output: [[1]]
 
+// Time: O(n! * n) | S: O(n)
 pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
+    let mut nums_copy = nums.clone();
     let mut result: Vec<Vec<i32>> = vec![];
+    let n = nums.len();
 
-    for (i, _) in nums.iter().enumerate() {
-        let nums_range: Vec<i32> = nums.clone().into_iter().skip(i).collect();
-        let mut vec_clone = nums_range.clone();
-        println!("{:?}", nums_range);
-        for (j, _) in nums_range.iter().enumerate() {
-            vec_clone[i] = nums_range[j];
-            result.push(vec_clone.clone());
-            vec_clone = nums.clone()
-        }
-    }
+    helper(0, n, &mut result, &mut nums_copy);
 
     result
+}
+
+fn helper(i: usize, length: usize, result: &mut Vec<Vec<i32>>, nums: &mut Vec<i32>) {
+    if i == length - 1 {
+        result.push(nums.clone());
+        return;
+    }
+
+    for j in i..length {
+        nums.swap(i, j);
+        helper(i + 1, length, result, nums);
+        nums.swap(i, j);
+    }
 }
 
 #[cfg(test)]
@@ -50,8 +57,8 @@ mod test {
                 [1, 3, 2],
                 [2, 1, 3],
                 [2, 3, 1],
-                [3, 1, 2],
-                [3, 2, 1]
+                [3, 2, 1],
+                [3, 1, 2]
             ]
         )
     }

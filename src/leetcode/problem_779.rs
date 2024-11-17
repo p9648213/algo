@@ -1,4 +1,4 @@
-//! https://leetcode.com/problems/k-th-symbol-in-grammar/description/
+// https://leetcode.com/problems/k-th-symbol-in-grammar/description/
 
 // We build a table of n rows (1-indexed). We start by writing 0 in the 1st row. Now in every subsequent row, we look at the previous row and replace each occurrence of 0 with 01, and each occurrence of 1 with 10.
 
@@ -18,13 +18,13 @@
 // ---------------
 // 1 2 3 4 5 6 7 8
 
-//? Example 1:
+// Example 1:
 
 // Input: n = 1, k = 1
 // Output: 0
 // Explanation: row 1: 0
 
-//? Example 2:
+// Example 2:
 
 // Input: n = 2, k = 1
 // Output: 0
@@ -32,7 +32,7 @@
 // row 1: 0
 // row 2: 01
 
-//? Example 3:
+// Example 3:
 
 // Input: n = 2, k = 2
 // Output: 1
@@ -41,7 +41,7 @@
 // row 2: 01
 
 // Time: O(logn) | Space: O(1)
-pub fn kth_grammar(n: i32, k: i32) -> i32 {
+pub fn kth_grammar(_n: i32, k: i32) -> i32 {
     let mut k = k;
     let mut flip = 0;
 

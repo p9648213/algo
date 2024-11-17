@@ -1,4 +1,4 @@
-//! https://leetcode.com/problems/find-the-winner-of-the-circular-game/
+// https://leetcode.com/problems/find-the-winner-of-the-circular-game/
 // There are n friends that are playing a game. The friends are sitting in a circle and are numbered from 1 to n in clockwise order. More formally, moving clockwise from the ith friend brings you to the (i+1)th friend for 1 <= i < n, and moving clockwise from the nth friend brings you to the 1st friend.
 
 // The rules of the game are as follows:
@@ -11,7 +11,7 @@
 
 // Given the number of friends, n, and an integer k, return the winner of the game.
 
-//? Example 1:
+// Example 1:
 
 // Input: n = 5, k = 2
 // Output: 3
@@ -26,13 +26,13 @@
 // 8) Count 2 friends clockwise, which are friends 3 and 5.
 // 9) Friend 5 leaves the circle. Only friend 3 is left, so they are the winner.
 
-//? Example 2:
+// Example 2:
 
 // Input: n = 6, k = 5
 // Output: 1
 // Explanation: The friends leave in this order: 5, 4, 6, 2, 3. The winner is friend 1.
 
-//? Time: O(n^2) | Space: O(n)
+// Time: O(n^2) | Space: O(n)
 pub fn find_the_winner(n: i32, k: i32) -> i32 {
     if n == 1 {
         return 1;
@@ -58,7 +58,7 @@ pub fn find_the_winner(n: i32, k: i32) -> i32 {
     player[0]
 }
 
-//? Time: O(n) | Space: O(1)
+// Time: O(n) | Space: O(1)
 pub fn find_the_winner_2(n: i32, k: i32) -> i32 {
     let mut survivor = 0;
     for pos in 2..=n {
@@ -67,7 +67,7 @@ pub fn find_the_winner_2(n: i32, k: i32) -> i32 {
     survivor + 1
 }
 
-//? Time: O(n^2) | Space: O(n)
+// Time: O(n^2) | Space: O(n)
 pub fn find_the_winner_recursive(n: i32, k: i32) -> i32 {
     let player: Vec<i32> = (1..=n).collect();
     winner(player, 0, k)
@@ -82,7 +82,7 @@ pub fn winner(mut array: Vec<i32>, start_index: i32, k: i32) -> i32 {
     winner(array, remove_index as i32, k)
 }
 
-//? Time: O(n) | Space: O(n)
+// Time: O(n) | Space: O(n)
 pub fn find_the_winner_recursive_2(n: i32, k: i32) -> i32 {
     winner_2(n, k) + 1
 }
