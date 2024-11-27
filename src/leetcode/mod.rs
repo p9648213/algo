@@ -1,5 +1,8 @@
 pub mod power_sum;
 pub mod problem_1823;
+pub mod problem_216;
+pub mod problem_39;
+pub mod problem_40;
 pub mod problem_47;
 pub mod problem_77;
 pub mod problem_779;

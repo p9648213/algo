@@ -39,7 +39,7 @@ pub fn helper(n: i32, k: i32, start: i32, curr: &mut Vec<i32>, result: &mut Vec<
     }
 }
 
-fn sorted_combinations(combinations: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+pub fn sorted_combinations(combinations: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
     let mut combinations = combinations
         .into_iter()
         .map(|mut arr| {
