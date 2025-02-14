@@ -3,6 +3,8 @@ pub mod problem_1823;
 pub mod problem_189;
 pub mod problem_216;
 pub mod problem_27;
+pub mod problem_28;
+pub mod problem_35;
 pub mod problem_39;
 pub mod problem_40;
 pub mod problem_47;
