@@ -51,7 +51,7 @@ mod tests {
   fn test_remove_element_1() {
     let mut candidates = vec![3,2,2,3];
     let val = 3;
-    let mut expected_candidates_after_remove = vec![2,2];
+    let mut expected_candidates_after_remove = [2,2];
     let expected_output = 2;
     let result = remove_element(&mut candidates, val);
     assert_eq!(candidates.sort(), expected_candidates_after_remove.sort());
