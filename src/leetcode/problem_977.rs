@@ -30,14 +30,12 @@ pub fn sorted_squares_2(nums: Vec<i32>) -> Vec<i32> {
     for _ in nums.iter() {
         if nums[start].pow(2) > nums[end].pow(2) {
             result[index] = nums[start].pow(2);
-            start = start + 1;
+            start += 1;
         } else {
             result[index] = nums[end].pow(2);
-            end = end - 1;
+            end -= 1;
         }
-        if index > 0 {
-            index = index - 1;
-        }
+        index = index.saturating_sub(1);
     }
 
     result

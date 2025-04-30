@@ -44,14 +44,14 @@ pub fn find_the_winner(n: i32, k: i32) -> i32 {
 
     while player.len() > 1 {
         if count == k - 1 {
-            if index as usize > player.len() - 1 {
-                index = index as usize % player.len();
+            if index > player.len() - 1 {
+                index %= player.len();
             }
             player.remove(index);
             count = 0;
         } else {
-            count = count + 1;
-            index = index + 1;
+            count += 1;
+            index += 1;
         }
     }
 
@@ -62,7 +62,7 @@ pub fn find_the_winner(n: i32, k: i32) -> i32 {
 pub fn find_the_winner_2(n: i32, k: i32) -> i32 {
     let mut survivor = 0;
     for pos in 2..=n {
-        survivor = (survivor + k) % pos as i32;
+        survivor = (survivor + k) % pos;
     }
     survivor + 1
 }

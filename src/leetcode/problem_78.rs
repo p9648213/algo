@@ -23,7 +23,7 @@ pub fn subsets(nums: Vec<i32>) -> Vec<Vec<i32>> {
     for num in nums.iter() {
         let mut new_subsets = vec![];
 
-        if result.len() > 0 {
+        if !result.is_empty() {
             for subset in result.iter() {
                 let mut new_subset = subset.clone();
                 new_subset.push(*num);

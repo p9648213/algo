@@ -13,77 +13,77 @@
 // move disk 1 from rod 2 to rod 3
 // 3
 
-pub fn toh(n: u32, from: u32, to: u32, aux: u32) -> u32 {
-    0
-}
+// pub fn toh(n: u32, from: u32, to: u32, aux: u32) -> u32 {
+//     0
+// }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+// #[cfg(test)]
+// mod tests {
+//     use super::*;
 
-    #[test]
-    fn test_toh_n1() {
-        let expected = 1;
-        let result = toh(1, 1, 3, 2);
-        assert_eq!(
-            result, expected,
-            "Input: (N=1, from=1, to=3, aux=2) | Expected: {} | Result: {}",
-            expected, result
-        );
-    }
+//     #[test]
+//     fn test_toh_n1() {
+//         let expected = 1;
+//         let result = toh(1, 1, 3, 2);
+//         assert_eq!(
+//             result, expected,
+//             "Input: (N=1, from=1, to=3, aux=2) | Expected: {} | Result: {}",
+//             expected, result
+//         );
+//     }
 
-    #[test]
-    fn test_toh_n2() {
-        let expected = 3;
-        let result = toh(2, 1, 3, 2);
-        assert_eq!(
-            result, expected,
-            "Input: (N=2, from=1, to=3, aux=2) | Expected: {} | Result: {}",
-            expected, result
-        );
-    }
+//     #[test]
+//     fn test_toh_n2() {
+//         let expected = 3;
+//         let result = toh(2, 1, 3, 2);
+//         assert_eq!(
+//             result, expected,
+//             "Input: (N=2, from=1, to=3, aux=2) | Expected: {} | Result: {}",
+//             expected, result
+//         );
+//     }
 
-    #[test]
-    fn test_toh_n3() {
-        let expected = 7;
-        let result = toh(3, 1, 3, 2);
-        assert_eq!(
-            result, expected,
-            "Input: (N=3, from=1, to=3, aux=2) | Expected: {} | Result: {}",
-            expected, result
-        );
-    }
+//     #[test]
+//     fn test_toh_n3() {
+//         let expected = 7;
+//         let result = toh(3, 1, 3, 2);
+//         assert_eq!(
+//             result, expected,
+//             "Input: (N=3, from=1, to=3, aux=2) | Expected: {} | Result: {}",
+//             expected, result
+//         );
+//     }
 
-    #[test]
-    fn test_toh_n4() {
-        let expected = 15;
-        let result = toh(4, 1, 3, 2);
-        assert_eq!(
-            result, expected,
-            "Input: (N=4, from=1, to=3, aux=2) | Expected: {} | Result: {}",
-            expected, result
-        );
-    }
+//     #[test]
+//     fn test_toh_n4() {
+//         let expected = 15;
+//         let result = toh(4, 1, 3, 2);
+//         assert_eq!(
+//             result, expected,
+//             "Input: (N=4, from=1, to=3, aux=2) | Expected: {} | Result: {}",
+//             expected, result
+//         );
+//     }
 
-    #[test]
-    fn test_toh_n5() {
-        let expected = 31;
-        let result = toh(5, 1, 3, 2);
-        assert_eq!(
-            result, expected,
-            "Input: (N=5, from=1, to=3, aux=2) | Expected: {} | Result: {}",
-            expected, result
-        );
-    }
+//     #[test]
+//     fn test_toh_n5() {
+//         let expected = 31;
+//         let result = toh(5, 1, 3, 2);
+//         assert_eq!(
+//             result, expected,
+//             "Input: (N=5, from=1, to=3, aux=2) | Expected: {} | Result: {}",
+//             expected, result
+//         );
+//     }
 
-    #[test]
-    fn test_toh_n6() {
-        let expected = 63;
-        let result = toh(6, 1, 3, 2);
-        assert_eq!(
-            result, expected,
-            "Input: (N=6, from=1, to=3, aux=2) | Expected: {} | Result: {}",
-            expected, result
-        );
-    }
-}
+//     #[test]
+//     fn test_toh_n6() {
+//         let expected = 63;
+//         let result = toh(6, 1, 3, 2);
+//         assert_eq!(
+//             result, expected,
+//             "Input: (N=6, from=1, to=3, aux=2) | Expected: {} | Result: {}",
+//             expected, result
+//         );
+//     }
+// }

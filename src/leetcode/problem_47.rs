@@ -37,8 +37,8 @@ fn helper(i: usize, length: usize, result: &mut Vec<Vec<i32>>, nums: &mut Vec<i3
     let mut hash: HashMap<i32, i32> = HashMap::new();
 
     for j in i..length {
-        if !hash.contains_key(&nums[j]) {
-            hash.insert(nums[j], 1);
+        if let std::collections::hash_map::Entry::Vacant(e) = hash.entry(nums[j]) {
+            e.insert(1);
             nums.swap(i, j);
             helper(i + 1, length, result, nums);
             nums.swap(i, j);

@@ -47,7 +47,7 @@ pub fn kth_grammar(_n: i32, k: i32) -> i32 {
 
     while k > 1 {
         if k % 2 == 0 {
-            flip = flip + 1;
+            flip += 1;
         }
 
         k = (k + 1) / 2
@@ -70,9 +70,9 @@ pub fn kth_grammar_recursive(n: i32, k: i32) -> i32 {
     let half = length / 2;
 
     if k <= half {
-        return kth_grammar_recursive(n - 1, k);
+        kth_grammar_recursive(n - 1, k)
     } else {
-        return kth_grammar_recursive(n - 1, k - half) ^ 1;
+        kth_grammar_recursive(n - 1, k - half) ^ 1
     }
 }
 

@@ -57,12 +57,12 @@ mod tests {
     #[test]
     fn test_896() {
         let result = is_monotonic([1, 2, 2, 3].to_vec());
-        assert_eq!(result, true);
+        assert!(result);
 
         let result = is_monotonic([6, 5, 4, 4].to_vec());
-        assert_eq!(result, true);
+        assert!(result);
 
         let result = is_monotonic([1, 3, 2].to_vec());
-        assert_eq!(result, false);
+        assert!(!result);
     }
 }

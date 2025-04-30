@@ -1,4 +1,5 @@
 pub mod power_sum;
+pub mod problem_11;
 pub mod problem_1823;
 pub mod problem_189;
 pub mod problem_216;
@@ -17,3 +18,4 @@ pub mod problem_896;
 pub mod problem_90;
 pub mod problem_977;
 pub mod tower_of_hanoi;
+pub mod problem_1;

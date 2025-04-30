@@ -60,7 +60,7 @@ pub fn helper(
     let mut hash: HashMap<i32, i32> = HashMap::new();
 
     for j in index..candidates.len() as i32 {
-        if hash.get(&candidates[j as usize]).is_some() {
+        if hash.contains_key(&candidates[j as usize]) {
             continue;
         }
 

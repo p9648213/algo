@@ -34,7 +34,7 @@ pub fn fib(n: i32) -> i32 {
         return 1;
     }
 
-    return fib(n - 1) + fib(n - 2);
+    fib(n - 1) + fib(n - 2)
 }
 
 #[cfg(test)]

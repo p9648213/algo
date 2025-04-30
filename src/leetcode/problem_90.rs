@@ -42,7 +42,7 @@ fn helper(nums: &Vec<i32>, mut index: usize, subset: &mut Vec<i32>, result: &mut
 
     // not include
     while index < nums.len() - 1 && nums[index] == nums[index + 1] {
-        index = index + 1;
+        index += 1;
     }
     helper(nums, index + 1, subset, result);
 }

@@ -41,14 +41,14 @@
 // }
 
 // Time: O(n)  | Space: O(1)
-pub fn rotate_array(nums: &mut Vec<i32>, k: i32) {
+pub fn rotate_array(nums: &mut [i32], k: i32) {
     let mut k = k;
-    if k == nums.len() as i32 || k == 0 || nums.len() == 0 || nums.len() == 1 {
+    if k == nums.len() as i32 || k == 0 || nums.is_empty() || nums.len() == 1 {
         return;
     }
 
     if k > nums.len() as i32 {
-        k = k % nums.len() as i32;
+        k %= nums.len() as i32;
     }
 
     nums.reverse();
